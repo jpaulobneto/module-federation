@@ -1,0 +1,13 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "host": "yarn workspace host"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
