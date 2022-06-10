@@ -1,9 +1,15 @@
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+import { CartProvider, useCart } from "../Cart"
 import { AddToCart } from "./AddToCart"
-import { useCart } from "../Cart"
 
-jest.mock("../Cart")
+jest.mock("../Cart", () => {
+  const originalModule = jest.requireActual("../Cart")
+  return {
+    ...originalModule,
+    useCart: jest.fn(),
+  }
+})
 
 describe("AddToCart", () => {
   const text = "Add to cart"
@@ -18,16 +24,24 @@ describe("AddToCart", () => {
   })
 
   it("renders the text", () => {
-    render(<AddToCart>{text}</AddToCart>)
+    render(
+      <CartProvider>
+        <AddToCart>{text}</AddToCart>
+      </CartProvider>
+    )
 
     expect(screen.getByText(text)).toBeInTheDocument()
   })
 
-  describe("when it is clicked", () => {
+  describe("when clicked", () => {
     const cup = { id: "1000", name: "Cup" }
 
     it("calls the onClick function", () => {
-      render(<AddToCart item={cup}>{text}</AddToCart>)
+      render(
+        <CartProvider>
+          <AddToCart item={cup}>{text}</AddToCart>
+        </CartProvider>
+      )
       const element = screen.getByText(text)
 
       userEvent.click(element)

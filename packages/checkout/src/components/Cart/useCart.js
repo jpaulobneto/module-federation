@@ -1,16 +1,12 @@
-import { useCallback, useState } from "react"
+import { useContext } from "react"
+import { CartContext } from "./CartContext"
 
 export const useCart = () => {
-  const [items, setItems] = useState([])
-  const count = items.length
+  const context = useContext(CartContext)
 
-  const add = useCallback(
-    (item) => setItems((prevItems) => [...prevItems, item]),
-    []
-  )
-
-  return {
-    state: { items, count },
-    actions: { add },
+  if (!context) {
+    throw new Error("useCart must be used with CartProvider")
   }
+
+  return context
 }

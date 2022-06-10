@@ -1,9 +1,13 @@
 import { render, screen } from "@testing-library/react"
-import { Cart } from "./Cart"
+import { Cart, CartProvider } from "."
 
 describe("Cart", () => {
   it("renders itself", () => {
-    render(<Cart />)
+    render(
+      <CartProvider>
+        <Cart />
+      </CartProvider>
+    )
 
     const element = screen.getByText(/basket/i)
 
