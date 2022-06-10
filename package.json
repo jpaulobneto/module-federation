@@ -5,7 +5,9 @@
     "packages/*"
   ],
   "scripts": {
+    "checkout": "yarn workspace checkout",
     "host": "yarn workspace host",
+    "product": "yarn workspace product",
     "postinstall": "yarn lerna bootstrap"
   },
   "devDependencies": {
