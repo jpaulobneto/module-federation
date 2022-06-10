@@ -1,5 +1,6 @@
 {
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "conventionalCommits.scopes": ["checkout", "host", "product"]
   // "editor.codeActionsOnSave": {
   //   "source.organizeImports": true
   // }
