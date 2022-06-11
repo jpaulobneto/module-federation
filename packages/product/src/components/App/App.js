@@ -1,5 +1,4 @@
-import { Product } from "../Product/Product"
-import { ProductProvider } from "../Product/ProductProvider"
+import { Product, ProductProvider } from "../Product"
 
 export function App() {
   return (
