@@ -1,4 +1,3 @@
-// const { addWebpackPlugin, override } = require("customize-cra")
 const { ModuleFederationPlugin } = require("webpack").container
 
 module.exports = function override(config) {
