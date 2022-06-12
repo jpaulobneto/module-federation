@@ -1,12 +1,16 @@
-import { CartProvider } from "checkout/CartProvider"
+import { Loader } from "../Loader/Loader"
 import { Product, ProductProvider } from "../Product"
 
 export function App() {
   return (
-    <CartProvider>
-      <ProductProvider>
+    <ProductProvider>
+      <Loader
+        src="http://localhost:3003/remoteEntry.js"
+        lib="checkout"
+        mod="./CartProvider"
+      >
         <Product />
-      </ProductProvider>
-    </CartProvider>
+      </Loader>
+    </ProductProvider>
   )
 }

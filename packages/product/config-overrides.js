@@ -5,9 +5,6 @@ module.exports = function override(config) {
     new ModuleFederationPlugin({
       name: "product",
       filename: "remoteEntry.js",
-      remotes: {
-        checkout: "checkout@http://localhost:3003/remoteEntry.js",
-      },
       shared: {
         react: {
           singleton: true,

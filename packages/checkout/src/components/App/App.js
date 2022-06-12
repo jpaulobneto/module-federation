@@ -1,12 +1,12 @@
-import { AddToCart } from "../AddToCart"
-import { Cart, CartProvider } from "../Cart"
+import AddToCart from "../AddToCart/AddToCart"
+import Cart from "../Cart/Cart"
+import CartProvider from "../Cart/CartProvider"
 
-export function App() {
+export default function App() {
   return (
     <CartProvider>
-      <p>
-        <Cart />
-      </p>
+      <Cart />
+      <br />
       <AddToCart item={{ id: 1000, name: "Cup" }}>Adicionar item</AddToCart>
     </CartProvider>
   )

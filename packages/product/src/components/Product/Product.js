@@ -1,5 +1,4 @@
-import { AddToCart } from "checkout/AddToCart"
-import { Cart } from "checkout/Cart"
+import { Loader } from "../Loader/Loader"
 import styles from "./Product.module.css"
 import { useProduct } from "./useProduct"
 
@@ -8,7 +7,11 @@ export function Product() {
 
   return (
     <>
-      <Cart />
+      <Loader
+        src="http://localhost:3003/remoteEntry.js"
+        lib="checkout"
+        mod="./Cart"
+      />
       <div className={styles.Root}>
         <h1 className={styles.Title}>{state.name}</h1>
         <img
@@ -18,7 +21,14 @@ export function Product() {
         />
         <p className={styles.Description}>{state.description}</p>
       </div>
-      <AddToCart item={state}>Adicionar ao carrinho</AddToCart>
+      <Loader
+        src="http://localhost:3003/remoteEntry.js"
+        lib="checkout"
+        mod="./AddToCart"
+        item={state}
+      >
+        Adicionar ao carrinho
+      </Loader>
     </>
   )
 }
