@@ -1,0 +1,6 @@
+.Cart {
+  border: 1px dotted gray;
+  padding: 5px;
+  max-width: 120px;
+  text-align: center;
+}
